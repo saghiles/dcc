@@ -1,4 +1,5 @@
 # Copyright (C) 2016  Aghiles Salah. All rights reserved.
+# License: Apache 2.0 License.
 
 dcc_sample <- function(prob){
     sample(1 : length(prob), size = 1, replace = FALSE, prob = prob)
