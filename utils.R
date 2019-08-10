@@ -1,6 +1,6 @@
 # Normalized Mutual Information
-NMI <- function(rowcluster, truelabels, n){
-    N_kl = as.matrix(table(rowcluster, truelabels))
+NMI <- function(row_cluster, true_labels, n){
+    N_kl = as.matrix(table(row_cluster, true_labels))
     N_k = rowSums(N_kl)
     N_l = colSums(N_kl)
     Num = 0
@@ -25,12 +25,12 @@ NMI <- function(rowcluster, truelabels, n){
 
 # Partition generator
 par_gen <-
-function(n, k, nb_par = 1){
+function(n, k, nb_par=1){
 
-    par = as.integer(sample(as.numeric(1 : k), n, replace = TRUE))
+    par = as.integer(sample(as.numeric(1 : k), n, replace=TRUE))
     if (nb_par > 1) {
         for (i in 2 : nb_par) {
-            par = rbind(par, as.integer(sample(as.numeric(1 : k), n, replace = TRUE)))
+            par = rbind(par, as.integer(sample(as.numeric(1 : k), n, replace=TRUE)))
         }
         par = as.matrix(par)
     }
