@@ -24,15 +24,15 @@ NMI <- function(rowcluster, truelabels, n){
 }
 
 # Partition generator
-par_gen<-
-  function(n,k, nb_par = 1){
+par_gen <-
+function(n, k, nb_par = 1){
 
-            par = as.integer(sample(as.numeric(1:k),n,replace = TRUE))
-            if(nb_par >1){
-              for(i in 2:nb_par){
-                par = rbind(par,as.integer(sample(as.numeric(1:k),n,replace = TRUE)))
-              }
-              par = as.matrix(par)
-            }
-            par
-  }
+    par = as.integer(sample(as.numeric(1 : k), n, replace = TRUE))
+    if (nb_par > 1) {
+        for (i in 2 : nb_par) {
+            par = rbind(par, as.integer(sample(as.numeric(1 : k), n, replace = TRUE)))
+        }
+        par = as.matrix(par)
+    }
+    par
+}
