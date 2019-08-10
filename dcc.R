@@ -1,4 +1,4 @@
-#  Copyright (C) 2016  Aghiles Salah. All rights reserved.
+# Copyright (C) 2016  Aghiles Salah. All rights reserved.
 
 dcc_sample <- function(prob){
     sample(1 : length(prob), size = 1, replace = FALSE, prob = prob)
