@@ -31,10 +31,10 @@ NMI <- function(row_cluster, true_labels, n){
 par_gen <-
 function(n, k, nb_par=1){
 
-    par = as.integer(sample(as.numeric(1 : k), n, replace=TRUE))
+    par = as.integer(sample(as.numeric(1 : k), n, replace = TRUE))
     if (nb_par > 1) {
         for (i in 2 : nb_par) {
-            par = rbind(par, as.integer(sample(as.numeric(1 : k), n, replace=TRUE)))
+            par = rbind(par, as.integer(sample(as.numeric(1 : k), n, replace = TRUE)))
         }
         par = as.matrix(par)
     }
@@ -43,13 +43,13 @@ function(n, k, nb_par=1){
 
 # TF-IDF data representation
 td_idf <- function(sparse_mat, l2_norm = FALSE){
-  
-    bin_mat = replace(sparse_mat,sparse_mat>0,1)
-    tfidf_mat = sparse_mat+sparse_mat*log(1+nrow(sparse_mat)) - t(t(sparse_mat)*log((1+colSums(bin_mat))))
-    
-    if(l2_norm)
-      tfidf_mat = tfidf_mat/sqrt(rowSums(tfidf_mat*tfidf_mat))
-    
-    tfidf_sp_mat = as(tfidf_mat,"dgCMatrix")
+
+    bin_mat = replace(sparse_mat, sparse_mat > 0, 1)
+    tfidf_mat = sparse_mat + sparse_mat * log(1 + nrow(sparse_mat)) - t(t(sparse_mat) * log((1 + colSums(bin_mat))))
+
+    if (l2_norm)
+    tfidf_mat = tfidf_mat / sqrt(rowSums(tfidf_mat * tfidf_mat))
+
+    tfidf_sp_mat = as(tfidf_mat, "dgCMatrix")
     tfidf_sp_mat
 }
