@@ -1,3 +1,7 @@
+# Copyright (C) 2016  Aghiles Salah. All rights reserved.
+# License: Apache 2.0 License.
+
+
 # Normalized Mutual Information
 NMI <- function(row_cluster, true_labels, n){
     N_kl = as.matrix(table(row_cluster, true_labels))
