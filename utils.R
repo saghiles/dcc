@@ -28,8 +28,7 @@ NMI <- function(row_cluster, true_labels, n){
 }
 
 # Partition generator
-par_gen <-
-function(n, k, nb_par=1){
+par_gen <- function(n, k, nb_par=1){
 
     par = as.integer(sample(as.numeric(1 : k), n, replace = TRUE))
     if (nb_par > 1) {
