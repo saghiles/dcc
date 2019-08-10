@@ -40,3 +40,16 @@ function(n, k, nb_par=1){
     }
     par
 }
+
+# TF-IDF data representation
+td_idf <- function(sparse_mat, l2_norm = FALSE){
+  
+    bin_mat = replace(sparse_mat,sparse_mat>0,1)
+    tfidf_mat = sparse_mat+sparse_mat*log(1+nrow(sparse_mat)) - t(t(sparse_mat)*log((1+colSums(bin_mat))))
+    
+    if(l2_norm)
+      tfidf_mat = tfidf_mat/sqrt(rowSums(tfidf_mat*tfidf_mat))
+    
+    tfidf_sp_mat = as(tfidf_mat,"dgCMatrix")
+    tfidf_sp_mat
+}
