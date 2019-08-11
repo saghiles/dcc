@@ -41,7 +41,7 @@ par_gen <- function(n, k, nb_par=1){
 }
 
 # TF-IDF data representation
-td_idf <- function(sparse_mat, l2_norm = FALSE){
+tf_idf <- function(sparse_mat, l2_norm = FALSE){
 
     bin_mat = replace(sparse_mat, sparse_mat > 0, 1)
     tfidf_mat = sparse_mat + sparse_mat * log(1 + nrow(sparse_mat)) - t(t(sparse_mat) * log((1 + colSums(bin_mat))))
