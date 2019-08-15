@@ -4,7 +4,10 @@ The code in this repository implements the DCC co-clustering algorithm presented
 - **[Model-based von Mises-Fisher Co-clustering with a Conscience](https://epubs.siam.org/doi/pdf/10.1137/1.9781611974973.28)** <br/>Aghiles Salah, Mohamed Nadif<br/>*SIAM International Conference on Data Mining*. 2017
 
 ## Usage example
-The following code is an example of how we can fit DCC to a real-world dataset and assess the quality of the obtained clustering. We assume that we have already run the scripts inside the files `dcc.R` and `utils.R`. 
+The following code is an example of how we can fit DCC to a real-world dataset and assess the quality of the obtained clustering. We assume that we have already run the scripts inside the files `dcc.R` and `utils.R`. The following packages are required:
+- R.matlab, for data reading.
+- mclust, for Adjusted Rand Index (ARI) computation.
+- Matrix, for sparse matrix representation and manipulation.
 ```R
 # Load NG2 datatset
 ng2 <- readMat("./data/NG2.mat")
